@@ -1,6 +1,6 @@
 PODS:
   - TDRemoteConfig (1.0.0):
-    - ThinkingDataCore (>= 1.1.0)
+    - ThinkingDataCore (= 1.1.0)
     - ThinkingSDK (>= 3.1.0-beta.1)
   - ThinkingDataCore (1.1.0):
     - ThinkingDataCore/Main (= 1.1.0)
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TDRemoteConfig: ea64bc2f110d2af475e7890cc4008efceed58dc5
+  TDRemoteConfig: 3dbbf5c22c3f7451682613259a70a4c31dd1e629
   ThinkingDataCore: 95b17863c31f70c0db600a5019ffb70a76613e5f
   ThinkingSDK: 3fc845b73d146e9b25bf5b2f597cadf41edf3cac
 
