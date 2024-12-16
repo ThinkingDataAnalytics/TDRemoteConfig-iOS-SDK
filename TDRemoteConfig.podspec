@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TDRemoteConfig'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = 'A short description of TDRemoteConfig.'
 
 # This description is used to generate tags and improve search results.
@@ -33,6 +33,5 @@ TODO: Add long description of the pod here.
   s.vendored_frameworks = 'TDRemoteConfig/Classes/**/*.xcframework'
   s.resource_bundles = {'TDRemoteConfig' => ['TDRemoteConfig/Resources/**/*']}
 
-  s.dependency 'ThinkingSDK', '>= 3.1.0-beta.1'
-  s.dependency 'ThinkingDataCore', '1.1.0'
+  s.dependency 'ThinkingSDK', '3.1.0-beta.2'
 end

@@ -18,8 +18,7 @@ typedef NS_OPTIONS(NSUInteger, TDRemoteConfigMode) {
 @property (nonatomic, assign) TDRemoteConfigMode mode;
 @property (nonatomic, copy) NSString *appId;
 @property (nonatomic, copy) NSString *serverUrl;
-@property (nonatomic, copy) NSString *templateCode;
-@property (nonatomic, strong) NSDictionary<NSString *, NSString *> *customFetchParams;
+@property (nonatomic, strong) NSDictionary<NSString *, NSObject *> *fetchParams;
 
 @end
 

@@ -13,46 +13,44 @@
 #import "TDRemoteConfigSettings.h"
 #endif
 
+#if __has_include(<TDRemoteConfig/TDObject.h>)
+#import <TDRemoteConfig/TDObject.h>
+#else
+#import "TDObject.h"
+#endif
+
+#if __has_include(<TDRemoteConfig/TDRemoteConfigSettingsPrivate.h>)
+#import <TDRemoteConfig/TDRemoteConfigSettingsPrivate.h>
+#else
+#import "TDRemoteConfigSettingsPrivate.h"
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
+
+extern NSString *kTDRemoteConfigFetchDataSuccess;
+extern NSString *kTDRemoteConfigStrategyStatusMap;
 
 @interface TDRemoteConfig : NSObject
 
 + (void)startWithSettings:(TDRemoteConfigSettings *)settings;
 + (void)enableLog:(BOOL)enable;
 + (NSString *)version;
-+ (void)setDefaultValues:(NSDictionary *)values;
 
-+ (BOOL)getBoolean:(NSString *)key;
-+ (long)getLong:(NSString *)key;
-+ (double)getDouble:(NSString *)key;
-+ (NSString *)getString:(NSString *)key;
-/// default: 1970-01-01 00:00:00
-+ (NSDate *)getDate:(NSString *)key;
-+ (NSDictionary *)getJson:(NSString *)key;
-+ (NSDictionary *)getAll;
-+ (void)setCustomFetchParams:(NSDictionary <NSString *, NSString *> *)params;
++ (TDObject *)getData;
++ (void)fetch;
++ (void)setCustomFetchParams:(NSDictionary *)params;
++ (void)removeCustomFetchParam:(NSString *)key;
++ (void)setDefaultValues:(NSDictionary *)defaultValue;
++ (void)setDefaultValuesWithJsonFile:(NSString *)filePath;
++ (void)clearDefaultValues;
 
-//MARK: - Multi-Templates
-+ (BOOL)getBoolean:(NSString *)key templateCode:(nullable NSString *)code;
-+ (long)getLong:(NSString *)key templateCode:(nullable NSString *)code;
-+ (double)getDouble:(NSString *)key templateCode:(nullable NSString *)code;
-+ (NSString *)getString:(NSString *)key templateCode:(nullable NSString *)code;
-+ (NSDate *)getDate:(NSString *)key templateCode:(nullable NSString *)code;
-+ (NSDictionary *)getJson:(NSString *)key templateCode:(nullable NSString *)code;
-+ (NSDictionary *)getAllWithTemplateCode:(nullable NSString *)code;
-+ (void)setDefaultValues:(NSDictionary *)values templateCode:(nullable NSString *)code;
-+ (void)setCustomFetchParams:(NSDictionary <NSString *, NSString *> *)params templateCode:(nullable NSString *)code;
-
-//MARK: - Multi-Apps
-+ (BOOL)getBoolean:(NSString *)key templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (long)getLong:(NSString *)key templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (double)getDouble:(NSString *)key templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (NSString *)getString:(NSString *)key templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (NSDate *)getDate:(NSString *)key templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (NSDictionary *)getJson:(NSString *)key templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (NSDictionary *)getAllWithTemplateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (void)setDefaultValues:(NSDictionary *)values templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
-+ (void)setCustomFetchParams:(NSDictionary <NSString *, NSString *> *)params templateCode:(nullable NSString *)code appId:(nullable NSString *)appId;
++ (TDObject *)getDataWithAppId:(nullable NSString *)appId;
++ (void)fetchWithAppId:(nullable NSString *)appId;
++ (void)setCustomFetchParams:(NSDictionary *)params appId:(nullable NSString *)appId;
++ (void)removeCustomFetchParam:(NSString *)key appId:(nullable NSString *)appId;
++ (void)setDefaultValues:(NSDictionary *)defaultValue appId:(nullable NSString *)appId;
++ (void)setDefaultValuesWithJsonFile:(NSString *)filePath appId:(nullable NSString *)appId;
++ (void)clearDefaultValuesWithAppId:(nullable NSString *)appId;
 
 @end
 
