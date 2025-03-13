@@ -40,12 +40,13 @@ typedef TDObject *__nullable(^TDObjectOperationFilter)(BOOL(^)(TDObject *));
 ///  })[0].stringValue;
 - (TDObjectOperationFilter)arrayWithFilter;
 
-- (NSString *)stringValue;
-- (NSArray *)arrayValue;
-- (NSDictionary *)objectValue;
-- (NSNumber *)numberValue;
-- (NSNumber *)longNumber;
-- (NSNumber *)doubleNumber;
+- (nullable NSString *)stringValue;
+- (nullable NSArray *)arrayValue;
+- (nullable NSDictionary *)objectValue;
+- (nullable NSNumber *)numberValue;
+- (nullable NSNumber *)longNumber;
+- (nullable NSNumber *)doubleNumber;
+- (nullable NSString *)configValue;
 
 @end
 

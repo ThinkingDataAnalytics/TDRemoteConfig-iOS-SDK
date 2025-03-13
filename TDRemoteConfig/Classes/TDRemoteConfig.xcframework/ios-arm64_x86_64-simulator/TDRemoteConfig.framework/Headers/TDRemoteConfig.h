@@ -36,6 +36,17 @@ extern NSString *kTDRemoteConfigStrategyStatusMap;
 + (void)enableLog:(BOOL)enable;
 + (NSString *)version;
 
+// MARK: - Client params
+/// Add a key-value pair to clientParams. If the key already exists, the new value will overwrite the old one.
++ (void)addClientParams:(NSDictionary *)params;
+
++ (void)removeClientParam:(NSString *)key;
++ (void)accumulateNum:(NSNumber *)number toClientParamKey:(NSString *)key;
++ (nullable NSDictionary *)getClientParams;
++ (id)getClientParamValueForKey:(NSString *)key;
+
+// MARK: -
+
 + (TDObject *)getData;
 + (void)fetch;
 + (void)setCustomFetchParams:(NSDictionary *)params;
